@@ -13,9 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 6
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
 
       - uses: actions/setup-node@v3
         with:
@@ -35,7 +33,7 @@ jobs:
           echo 'Updating @prisma/studio, @prisma/studio-server to ${{ github.event.inputs.version }} using pnpm'
           pnpm update -r @prisma/studio@${{ github.event.inputs.version }} @prisma/studio-server@${{ github.event.inputs.version }}
           echo 'Awesome - proceeding to make the PR'
-            
+
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
